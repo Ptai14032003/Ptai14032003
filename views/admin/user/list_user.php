@@ -20,7 +20,7 @@
                         <td><?= $user['tel'] ?></td>
                         <td><?= $user['email'] ?></td>
                         <td><?= $user['birthday'] ?></td>
-                        <td><img src="./public/image/<?= $user['image'] ?>" width="100px" height="100px" alt=""></td>
+                        <td><img src="./public/image/<?= $user['image'] ?>" width="200px"  style="border-radius:50% ;" height="200px" alt=""></td>
                         <td><?= $user['roles']==1? "Admin" : "User" ?></td>
                         <td>
                             <a href="index.php?ctr=edit_user&id=<?= $user['ID'] ?>" class="btn btn-outline-warning">Edit</a><br>

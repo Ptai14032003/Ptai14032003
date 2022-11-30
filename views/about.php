@@ -1,4 +1,4 @@
-<?php require_once "./view/header.php" ?>
+<?php require_once "./views/header.php" ?>
 <section id="about" class="about">
     <div class="container-fluid">
         <div class="row">
@@ -74,4 +74,4 @@
         </div>
     </div>
 </section>
-<?php require_once "./view/footer.php" ?>
+<?php require_once "./views/footer.php" ?>

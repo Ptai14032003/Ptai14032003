@@ -9,6 +9,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script> -->
+    <script src="./public/ckeditor/ckeditor.js"></script>
+    <script src="./public/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        
+        var editor = CKEDITOR.replace('editor1', {
+            filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
+            filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            // filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+            filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+            
+            height: 500,
+        })
+        CKFinder.setupCKEditor(editor);
+    </script>
 </body>
 
 </html>

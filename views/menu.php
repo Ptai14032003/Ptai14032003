@@ -7,7 +7,7 @@ if (isset($_GET['id']) && ($_GET['id'] != 0)) {
     $trang = so_trang();
     $foods =phan_trang_food();
 }
-$id = $_GET['id'];
+
 ?>
 <?php require_once "./views/header.php" ?>
 <div class="food">

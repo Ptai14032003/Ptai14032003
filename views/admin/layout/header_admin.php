@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./public/css/grid.css">
     <link rel="stylesheet" href="./public/css/admin.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    
+
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                     <a href="index.php?ctr=food"><i class="fas fa-hamburger"></i><span>Foods</span></a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-edit"></i><span>Post</span></a>
+                    <a href="index.php?ctr=post"><i class="fas fa-edit"></i><span>Post</span></a>
                 </li>
                 <li>
                     <a href=""><i class="fas fa-file-invoice-dollar"></i><span>Orders</span></a>

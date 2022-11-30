@@ -159,3 +159,16 @@ form label{
 .form-group{
     margin-bottom: 40px;
 }
+
+/* css phần post */
+.post{
+    text-align: left;
+}
+.post textarea{
+    width: 80% !important;
+    height: 15vh !important;
+}
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 300px;
+}

@@ -1,3 +1,8 @@
+<?php
+require_once "./controller/post_controller.php";
+require_once "./model/post.php";
+$new_post = get_3_post();
+?>
 <?php include_once "header.php" ?>
 <!-- Slide -->
 <section id="hero">
@@ -19,7 +24,7 @@
                                 món ngon tuyệt vời này.
                             </p>
                             <div>
-                                <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our
+                                <a href="index.php?ctr=menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our
                                     Menu</a>
                             </div>
                         </div>
@@ -81,7 +86,7 @@
             <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
                 <div class="content">
-                    <h3>A little information about us</h3>
+                    <h3>Một chút thông tin về chúng tôi</h3>
                     <p>
                         Chúng tôi chuyên cung cấp các món ăn ẩm thực từ đường phố đến các nhà hàng sang trọng đảm
                         bảo an toàn thực phẩm
@@ -117,24 +122,14 @@
         <h1>New Posts</h1>
         <p>New articles about our food reviews and locations appear here.</p>
         <div class="row">
-            <div class="col l-4 m-12 c-12">
-                <a href="#"><img src="./public/image/review1.jpg" alt=""></a>
-                <a href="#">
-                    <h5>Review Hamberger ngon nhất tại Hà Nội </h5>
-                </a>
-            </div>
-            <div class="col l-4 m-12 c-12">
-                <a href="#"><img src="./public/image/review2.jpg" alt=""></a>
-                <a href="#">
-                    <h5>Review bún chả Hà nội </h5>
-                </a>
-            </div>
-            <div class="col l-4 m-12 c-12">
-                <a href="#"><img src="./public/image/review3.jpg" alt=""></a>
-                <a href="#">
-                    <h5>6 Degrees Dink Eat Meat-Nhà hàng view đẹp tại Hà Nội </h5>
-                </a>
-            </div>
+            <?php foreach($new_post as $post): ?>
+                <div class="col l-4 m-12 c-12">
+                    <a href="index.php?ctr=chi_tiet_bai_viet&id=<?= $post['ID'] ?>"><img src="./public/image/<?= $post['image'] ?>"alt=""></a>
+                    <a href="index.php?ctr=chi_tiet_bai_viet&id=<?= $post['ID'] ?>">
+                        <h5><?= $post['title'] ?> </h5>
+                    </a>
+                </div>  
+            <?php endforeach ?>
         </div>
     </div>
 </div>
