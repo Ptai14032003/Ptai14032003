@@ -21,8 +21,8 @@
                         <td><?= $food['desc'] ?></td>
                         <td><?= $food['cate_name'] ?></td>
                         <td>
-                            <a href="index.php?ctr=edit_food&id=<?= $ca['ID'] ?>" class="btn btn-outline-warning">Edit</a><br>
-                            <a href="index.php?ctr=delete_food&id=<?= $ca['ID'] ?>" onclick="return confirm('Do you want to delete this user?')" class="btn btn-outline-danger">Delete</a>    
+                            <a href="index.php?ctr=edit_food&id=<?= $food['ID'] ?>" class="btn btn-outline-warning">Edit</a><br>
+                            <a href="index.php?ctr=delete_food&id=<?= $food['ID'] ?>" onclick="return confirm('Do you want to delete this user?')" class="btn btn-outline-danger">Delete</a>    
                         </td>
                     </tr>
                 <?php endforeach ?>

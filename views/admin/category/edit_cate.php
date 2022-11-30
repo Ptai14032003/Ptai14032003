@@ -8,9 +8,9 @@ if(isset($_GET['id'])){
 ?>
 <?php include_once "/xampp/htdocs/du_an1/views/admin/layout/header_admin.php" ?>
     <div class="main-contents">
-        <form action="index.php?ctr=edit_cate&id=<?= $cate['ID'] ?>" method="POST">
+        <form action="index.php?ctr=edit_cate&id=<?= $cate['ID_cate'] ?>" method="POST">
             <div class="row">
-                <input type="hidden" name="ID" value="<?= $cate['ID']?>">
+                <input type="hidden" name="ID" value="<?= $cate['ID_cate']?>">
                 <div class="form-group col l-12">
                     <label for="">Category Name</label>
                     <input type="text" name="name" value="<?= $cate['cate_name']?>"><br>

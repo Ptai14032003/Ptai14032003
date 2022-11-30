@@ -83,6 +83,21 @@ switch ($ctr) {
         $error = validate_add_food();
         include_once "./views/admin/food/add_food.php";
         break;
+    case 'edit_food':
+        if(isset($_GET['id'])){
+            $food = show_food($_GET['id']);
+        }
+        $cate = show_menu_all();
+        $error = validate_edit_food();
+        include_once "./views/admin/food/edit_food.php";
+        break;
+    case 'delete_food':
+        if(isset($_GET['id'])){
+             delete_food($_GET['id']);
+        }
+        $foods = show_all_foods();
+        include_once "./views/admin/food/list_food.php";
+        break;
     default:
         break;
 }

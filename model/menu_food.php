@@ -20,7 +20,7 @@ function add_cate($name){
 // lấy ra 1 danh mục theo ID
 function get_one_cate($id){
     $connect = connection();
-    $sql = "SELECT * from food_type where ID=$id";
+    $sql = "SELECT * from food_type where ID_cate=$id";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ function get_one_cate($id){
 // cập nhật theo ID
 function edit_cate($id,$name){
     $connect = connection();
-    $sql = "UPDATE food_type set `cate_name`='$name' WHERE ID=$id";
+    $sql = "UPDATE food_type set `cate_name`='$name' WHERE ID_cate=$id";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
 }
@@ -38,7 +38,7 @@ function edit_cate($id,$name){
 
 function delete_cate($id){
     $connect = connection();
-    $sql = "DELETE from food_type where ID=$id";
+    $sql = "DELETE from food_type where ID_cate=$id";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
 }
