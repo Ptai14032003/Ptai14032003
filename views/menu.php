@@ -1,10 +1,13 @@
 <?php
 if (isset($_GET['id']) && ($_GET['id'] != 0)) {
     $id = $_GET['id'];
-    $foods = show_foods($id);
+    $trang = so_trang_cate($id);
+    $foods = phan_trang_food_cate($id);
 } else {
-    $foods = show_all_foods();
+    $trang = so_trang();
+    $foods =phan_trang_food();
 }
+$id = $_GET['id'];
 ?>
 <?php require_once "./views/header.php" ?>
 <div class="food">
@@ -32,6 +35,11 @@ if (isset($_GET['id']) && ($_GET['id'] != 0)) {
                 </div>
             <?php endforeach ?>
         </div>
+        <div class="list_trang row">
+            <?php for($i = 1; $i <= $trang; $i++):?>
+                <li><a href="index.php?ctr=menu&id=<?php echo $id ?>&trang=<?php echo $i ?>" class="btn btn-primary"><?php echo $i ?></a></li>
+            <?php endfor ?>
+        </div>
     </div>
 </div>
-<?php require_once "./view/footer.php" ?>
+<?php require_once "./views/footer.php" ?>

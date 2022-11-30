@@ -60,7 +60,7 @@ function edit_food($ID,$name,$image,$price,$desc,$ID_cate){
     $stmt->execute();
 }
 
-// phân trang
+// phân trang toàn bộ sản phẩm
 function phantrang_all_food($begin, $jump)
 {
     //lấy kết nối database
@@ -71,8 +71,17 @@ function phantrang_all_food($begin, $jump)
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-
-
+// phân trang sản phẩm theo danh mục
+function phantrang_food_cate($id,$begin, $jump)
+{
+    //lấy kết nối database
+    $connect = connection();
+    $sql = "SELECT * from foods,food_type where foods.ID_cate=food_type.ID_cate and foods.ID_cate=$id limit $begin,$jump";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 // Tổng số trang cần chia tất cả sản phẩm
 function so_trang()
 {
@@ -81,16 +90,16 @@ function so_trang()
     $result = $connect->query("SELECT COUNT(ID)as totals from foods,food_type where foods.ID_cate=food_type.ID_cate");
     $row = $result->fetch(PDO::FETCH_ASSOC);
     $total_row = $row['totals'];
-    $trang = ceil($total_row / 10
-);
+    $trang = ceil($total_row / 8);
     return $trang;
 }
 // Tổng số trang cần chia cho sản phẩm theo danh mục
-function so_trang_theo_danh_muc($id)
+function so_trang_cate($id)
 {
     //tìm tổng số trang cần chia
     $connect = connection();
-    $result = $connect->query("SELECT COUNT(ID)as totals from  foods where ID_cate=$id");
+    $result = $connect->query("SELECT COUNT(ID)as totals from foods,food_type 
+    where foods.ID_cate=food_type.ID_cate and foods.ID_cate=$id");
     $row = $result->fetch(PDO::FETCH_ASSOC);
     $total_row = $row['totals'];
     $trang = ceil($total_row / 8);

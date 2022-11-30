@@ -9,6 +9,7 @@
 *{
     margin: 0 ;padding: 0;
     box-sizing: border-box !important;
+    list-style: none;
 }
 /* phần header--menu+search+user */
 header{
@@ -801,4 +802,9 @@ form button{
 .chitiet .add:hover{
   background-color: turquoise;  
   color: #fff;
+}
+
+/* phân trang */
+.list_trang li{
+  margin-right: 10px;
 }

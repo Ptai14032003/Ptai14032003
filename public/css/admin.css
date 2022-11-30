@@ -64,11 +64,8 @@ header{
     justify-content: space-between;
     padding: 20px 30px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;
     left: 345px;
-    width: calc(100% - 345px);
-    top:0;
-    z-index: 100;
+    width: 100%;
 }
 
 header h2{
@@ -94,10 +91,9 @@ header label i{
 }
 
 main{
-    margin-top: 100px;
     padding: 40px 30px;
     background: #f1f5f9;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 101px);
 }
 .cards{
     display: grid;
@@ -137,10 +133,9 @@ main{
 /* Phần quản lý user */
 .main-contents{
     margin-left: 345px;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 101px);
     padding: 40px 30px;
     background: #f1f5f9;
-    margin-top: 100px;
 }
 table{
     background: #fff;

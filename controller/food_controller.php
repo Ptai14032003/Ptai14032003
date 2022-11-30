@@ -93,7 +93,17 @@ function phan_trang_food(){
     } else {
         $page = 1;
     }
-    $begin = ($page - 1) * 10;
-    $jump = 10;
+    $begin = ($page - 1) * 8;
+    $jump = 8;
     return phantrang_all_food($begin, $jump);
+}
+function phan_trang_food_cate($id){
+    if (isset($_GET['trang'])) {
+        $page = $_GET['trang'];
+    } else {
+        $page = 1;
+    }
+    $begin = ($page - 1) * 8;
+    $jump = 8;
+    return phantrang_food_cate($id, $begin, $jump);
 }
