@@ -33,7 +33,13 @@ function delete_food($id){
     $stmt = $connect->prepare($sql);
     $stmt->execute();
 }
-
+// xóa món ăn theo danh mục
+function delete_food_cate($id){
+    $connect = connection();
+    $sql = "DELETE from foods where ID_cate=$id";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+}
 // show 1 món ăn và tên danh mục
 function show_food($id){
     $connect = connection();

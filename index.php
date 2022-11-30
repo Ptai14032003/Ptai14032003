@@ -5,13 +5,16 @@ require_once "./controller/menu_food_controller.php";
 require_once "./controller/food_controller.php";
 require_once "./controller/admin_controller.php";
 require_once "./controller/user_controller.php";
+require_once "./controller/post_controller.php";
 require_once "./model/menu_food.php";
 require_once "./model/foods.php";
+require_once "./model/post.php";
 
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 switch ($ctr) {
     case '/':
     case 'home':
+
         show_home();
         break;
     case 'about':
@@ -24,6 +27,12 @@ switch ($ctr) {
         if (isset($_GET['idsp'])){
             chitiet($_GET['idsp']);
         }  
+        break;
+    case 'chi_tiet_bai_viet':
+        if(isset($_GET['id'])){
+            $post = get_one_post($_GET['id']);
+        }
+        include_once "./views/chitiet_post.php";     
         break;
 // phần admin
     case 'admin':
@@ -68,6 +77,7 @@ switch ($ctr) {
         break;
     case 'delete_cate':
         if(isset($_GET['id'])){
+            delete_food_cate($_GET['id']);
             delete_cate($_GET['id']);
         }
         $cate = show_menu_all();    
@@ -99,6 +109,30 @@ switch ($ctr) {
         }
         $foods = show_all_foods();
         include_once "./views/admin/food/list_food.php";
+        break;
+
+    // quản lý bài viết
+    case 'post':
+        $posts = get_all_post();
+        include_once "./views/admin/post/list_post.php";
+        break;
+    case 'add_post':
+        $error = validate_add_post();
+        include_once "./views/admin/post/add_post.php";
+        break;
+    case 'edit_post':
+        if(isset($_GET['id'])){
+            $post = get_one_post($_GET['id']);
+        }
+        $error = validate_edit_post();
+        include_once "./views/admin/post/edit_post.php";
+        break;
+    case 'delete_post':
+        if(isset($_GET['id'])){
+            delete_post($_GET['id']);
+        }
+        $posts = get_all_post();
+        include_once "./views/admin/post/list_post.php";
         break;
     default:
         break;
