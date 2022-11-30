@@ -75,7 +75,9 @@ switch ($ctr) {
         break;
     // quản lý món ăn
     case 'food':
-        $foods = show_all_foods();
+        $trang = so_trang();
+        $foods=phan_trang_food();
+        // $foods = show_all_foods();
         include_once "./views/admin/food/list_food.php";
         break;
     case 'add_food':

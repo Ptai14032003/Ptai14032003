@@ -7,9 +7,9 @@ $cate = show_menu_all();
         <h1>Check our tasty Menu</h1>
         <div class="menu_item">
             <ul class="menu_food row">
-                <li><a href="index.php?ctr=menu&id=0">Show All</a></li>
+                <li><a href="index.php?ctr=menu">Show All</a></li>
                 <?php foreach ($cate as $ca) : ?>
-                    <li><a href="index.php?ctr=menu&id=<?= $ca['ID'] ?>"><?= $ca['name'] ?></a></li>
+                    <li><a href="index.php?ctr=menu&id=<?= $ca['ID_cate'] ?>"><?= $ca['cate_name'] ?></a></li>
                 <?php endforeach ?>
             </ul>
         </div>

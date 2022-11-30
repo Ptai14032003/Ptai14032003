@@ -85,3 +85,15 @@ function validate_edit_food(){
         return $error;
     }
 }
+
+// phân trang
+function phan_trang_food(){
+    if (isset($_GET['trang'])) {
+        $page = $_GET['trang'];
+    } else {
+        $page = 1;
+    }
+    $begin = ($page - 1) * 10;
+    $jump = 10;
+    return phantrang_all_food($begin, $jump);
+}

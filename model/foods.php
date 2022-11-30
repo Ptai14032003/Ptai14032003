@@ -78,10 +78,11 @@ function so_trang()
 {
     //tìm tổng số trang cần chia
     $connect = connection();
-    $result = $connect->query("SELECT COUNT(ID)as totals from  foods");
+    $result = $connect->query("SELECT COUNT(ID)as totals from foods,food_type where foods.ID_cate=food_type.ID_cate");
     $row = $result->fetch(PDO::FETCH_ASSOC);
     $total_row = $row['totals'];
-    $trang = ceil($total_row / 8);
+    $trang = ceil($total_row / 10
+);
     return $trang;
 }
 // Tổng số trang cần chia cho sản phẩm theo danh mục

@@ -14,7 +14,7 @@ if (isset($_GET['id']) && ($_GET['id'] != 0)) {
             <ul class="menu_food row">
                 <li><a href="index.php?ctr=menu&id=0">Show All</a></li>
                 <?php foreach ($cate as $ca) : ?>
-                    <li><a href="index.php?ctr=menu&id=<?= $ca['ID'] ?>"><?= $ca['cate_name'] ?></a></li>
+                    <li><a href="index.php?ctr=menu&id=<?= $ca['ID_cate'] ?>"><?= $ca['cate_name'] ?></a></li>
                 <?php endforeach ?>
             </ul>
         </div>

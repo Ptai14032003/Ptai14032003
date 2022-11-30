@@ -28,5 +28,10 @@
                 <?php endforeach ?>
             </tbody>
     </table>
+    <div class="list_trang row">
+        <?php for($i = 1; $i <= $trang; $i++):?>
+            <li><a href="index.php?ctr=food&trang=<?php echo $i ?>" class="btn btn-primary"><?php echo $i ?></a></li>
+        <?php endfor ?>
+    </div>
 </div>
 <?php require_once "./views/admin/layout/footer_admin.php"?>
