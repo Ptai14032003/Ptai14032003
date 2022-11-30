@@ -21,6 +21,7 @@
                     <td>
                         <a href="index.php?ctr=edit_post&id=<?= $post['ID'] ?>" class="btn btn-outline-warning">Edit</a><br>
                         <a href="index.php?ctr=delete_post&id=<?= $post['ID'] ?>" onclick="return confirm('Do you want to delete this post?')" class="btn btn-outline-danger">Delete</a>    
+                        <a href="index.php?ctr=chi_tiet_post&id=<?= $post['ID'] ?>" class="btn btn-primary">Chi tiết</a>
                     </td>
                 </tr>
             <?php endforeach ?>

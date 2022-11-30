@@ -66,6 +66,19 @@ function edit_food($ID,$name,$image,$price,$desc,$ID_cate){
     $stmt->execute();
 }
 
+
+// tìm kiếm sản phẩm
+function search($ten)
+{
+    $connect = connection();
+    $sql = " SELECT * FROM `foods` WHERE `name` like '%".$ten."%'";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $search = $stmt->fetchall(PDO::FETCH_ASSOC);
+    return $search;
+}
+
+
 // phân trang toàn bộ sản phẩm
 function phantrang_all_food($begin, $jump)
 {

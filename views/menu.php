@@ -7,7 +7,12 @@ if (isset($_GET['id']) && ($_GET['id'] != 0)) {
     $trang = so_trang();
     $foods =phan_trang_food();
 }
-
+if (isset($_POST['word']) && ($_POST['word'] != "")) {
+    $ten = $_POST['word'];
+    $foods = search($ten);
+} else {
+    $ten = "";
+}
 ?>
 <?php require_once "./views/header.php" ?>
 <div class="food">

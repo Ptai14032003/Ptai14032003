@@ -51,9 +51,9 @@
                     </nav>
                 </div>
                 <div class="col l-4">
-                    <form action="" class="search row">
-                        <input type="text" placeholder="Tìm kiếm">
-                        <button><i class="fas fa-search"></i></button>
+                    <form action="index.php?ctr=menu" method="POST" class="search row">
+                        <input type="text" name="word" placeholder="Tìm kiếm">
+                        <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <div class="col l-2 user">

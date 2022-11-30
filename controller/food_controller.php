@@ -107,3 +107,14 @@ function phan_trang_food_cate($id){
     $jump = 8;
     return phantrang_food_cate($id, $begin, $jump);
 }
+
+// // search sản phẩm
+// function search(){
+//     if (isset($_POST['word']) && ($_POST['word'] != "")) {
+//         $ten = $_POST['word'];
+//         $foods = search($ten);
+//     } else {
+//         $ten = "";
+//     }
+//     return $foods;
+// }

@@ -134,6 +134,12 @@ switch ($ctr) {
         $posts = get_all_post();
         include_once "./views/admin/post/list_post.php";
         break;
+    case 'chi_tiet_post':
+        if(isset($_GET['id'])){
+            $post = get_one_post($_GET['id']);
+        }
+        include_once "./views/admin/post/chi_tiet_post.php";
+        break;
     default:
         break;
 }
