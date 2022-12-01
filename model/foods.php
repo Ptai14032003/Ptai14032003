@@ -124,3 +124,18 @@ function so_trang_cate($id)
     $trang = ceil($total_row / 8);
     return $trang;
 }
+
+
+// thống kê
+
+function load_thong_ke_sp(){
+    $connect = connection();
+    $sql = "SELECT food_type.cate_name, COUNT(foods.ID)as countsp, MIN(foods.price) as minprice, MAX(foods.price) as maxprice, AVG(foods.price)as tbprice 
+    FROM foods INNER JOIN food_type ON  foods.ID_cate=food_type.ID_cate 
+    GROUP BY food_type.ID_cate
+    ORDER BY food_type.ID_cate asc";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}

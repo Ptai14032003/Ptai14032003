@@ -10,7 +10,6 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script> -->
     <script src="./public/ckeditor/ckeditor.js"></script>
     <script src="./public/ckfinder/ckfinder.js"></script>
     <script type="text/javascript">
@@ -26,6 +25,8 @@
         })
         CKFinder.setupCKEditor(editor);
     </script>
+
+
 </body>
 
 </html>

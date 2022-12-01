@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./public/css/grid.css">
     <link rel="stylesheet" href="./public/css/admin.css">
     <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
 </head>
 
@@ -45,7 +46,7 @@
                     <a href=""><i class="fas fa-file-invoice-dollar"></i><span>Orders</span></a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-chart-line"></i><span>Statistical</span></a>
+                    <a href="index.php?ctr=thongke"><i class="fas fa-chart-line"></i><span>Statistical</span></a>
                 </li>
             </ul>
         </div>

@@ -58,7 +58,7 @@
                 </div>
                 <div class="col l-2 user">
                     <ul class="row">
-                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href="index.php?ctr=giohang"><i class="fas fa-shopping-cart"></i></a></li>
                         <li class="dropdown">
                             <a href="#"><i class="fas fa-user"></i></a>
                             <ul>

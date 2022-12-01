@@ -23,6 +23,9 @@ switch ($ctr) {
     case 'menu':
         show_cate();
         break;
+    // case 'giohang':
+    //     include_once "./views/giohang.php";
+    //     break;
     case 'chitiet':
         if (isset($_GET['idsp'])){
             chitiet($_GET['idsp']);
@@ -139,6 +142,16 @@ switch ($ctr) {
             $post = get_one_post($_GET['id']);
         }
         include_once "./views/admin/post/chi_tiet_post.php";
+        break;
+    
+    // thống kê
+    case 'thongke':
+        $tk_sp=load_thong_ke_sp();
+        include_once "./views/admin/thongke/thongke.php";
+        break;
+    case 'bieudo':
+        $tk_sp=load_thong_ke_sp();
+        include_once "./views/admin/thongke/bieudo.php";
         break;
     default:
         break;

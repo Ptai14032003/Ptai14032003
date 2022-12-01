@@ -6,6 +6,7 @@ if (isset($_GET['id']) && ($_GET['id'] != 0)) {
 } else {
     $trang = so_trang();
     $foods =phan_trang_food();
+    $id = 0;
 }
 if (isset($_POST['word']) && ($_POST['word'] != "")) {
     $ten = $_POST['word'];
