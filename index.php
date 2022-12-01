@@ -153,6 +153,8 @@ switch ($ctr) {
         $tk_sp=load_thong_ke_sp();
         include_once "./views/admin/thongke/bieudo.php";
         break;
+    case "tai":
+        break;
     default:
         break;
 }
