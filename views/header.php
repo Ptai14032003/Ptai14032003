@@ -62,8 +62,12 @@
                         <li class="dropdown">
                             <a href="#"><i class="fas fa-user"></i></a>
                             <ul>
-                                <li><a href="#">Đăng nhập</a></li>
-                                <li><a href="#">Đăng ký</a></li>
+                                <?php if (isset($_SESSION['username']) && isset($_SESSION['id'])) : ?>
+                                    <li><a href="index.php?ctr=logout">Đăng xuất</a></li>
+                                <?php else : ?>
+                                    <li><a href="index.php?ctr=login">Đăng nhập</a></li>
+                                    <li><a href="index.php?ctr=register">Đăng ký</a></li>
+                                <?php endif; ?>
                             </ul>
                         </li>
                     </ul>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "./controller/controller.php";
 require_once "./controller/index_controller.php";
 require_once "./controller/menu_food_controller.php";
@@ -9,6 +10,7 @@ require_once "./controller/post_controller.php";
 require_once "./model/menu_food.php";
 require_once "./model/foods.php";
 require_once "./model/post.php";
+require_once "./model/user.php";
 
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 switch ($ctr) {
@@ -23,47 +25,58 @@ switch ($ctr) {
     case 'menu':
         show_cate();
         break;
-    // case 'giohang':
-    //     include_once "./views/giohang.php";
-    //     break;
+        // đăng nhập & đăng ký
+    case 'login':
+        require "./views/login.php";
+        break;
+    case 'register':
+        require "./views/register.php";
+        break;
+        // đăng xuất
+    case 'logout':
+        require "./views/logout.php";
+        break;
+        // case 'giohang':
+        //     include_once "./views/giohang.php";
+        //     break;
     case 'chitiet':
-        if (isset($_GET['idsp'])){
+        if (isset($_GET['idsp'])) {
             chitiet($_GET['idsp']);
-        }  
+        }
         break;
     case 'chi_tiet_bai_viet':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $post = get_one_post($_GET['id']);
         }
-        include_once "./views/chitiet_post.php";     
+        include_once "./views/chitiet_post.php";
         break;
-// phần admin
+        // phần admin
     case 'admin':
     case 'dashboard':
         include_once "./views/admin/dashboard.php";
         break;
-    // quản lý user
+        // quản lý user
     case 'user':
-        $users=all_user();
+        $users = all_user();
         include_once "./views/admin/user/list_user.php";
         break;
     case 'add_user':
         include_once "./views/admin/user/add_user.php";
         break;
     case 'edit_user':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $user = get_one_user($_GET['id']);
         }
         include_once "./views/admin/user/edit_user.php";
         break;
     case 'delete_user':
-        if(isset($_GET['id'])){
-             delete_user($_GET['id']);
+        if (isset($_GET['id'])) {
+            delete_user($_GET['id']);
         }
-        $users=all_user(); 
+        $users = all_user();
         include_once "./views/admin/user/list_user.php";
         break;
-    // quản lý danh mục
+        // quản lý danh mục
     case 'category':
         $cate = show_menu_all();
         include_once "./views/admin/category/list_cate.php";
@@ -73,23 +86,23 @@ switch ($ctr) {
         include_once "./views/admin/category/add_cate.php";
         break;
     case 'edit_cate':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $cate = get_one_cate($_GET['id']);
         }
         include_once "./views/admin/category/edit_cate.php";
         break;
     case 'delete_cate':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             delete_food_cate($_GET['id']);
             delete_cate($_GET['id']);
         }
-        $cate = show_menu_all();    
+        $cate = show_menu_all();
         include_once "./views/admin/category/list_cate.php";
         break;
-    // quản lý món ăn
+        // quản lý món ăn
     case 'food':
         $trang = so_trang();
-        $foods=phan_trang_food();
+        $foods = phan_trang_food();
         // $foods = show_all_foods();
         include_once "./views/admin/food/list_food.php";
         break;
@@ -99,7 +112,7 @@ switch ($ctr) {
         include_once "./views/admin/food/add_food.php";
         break;
     case 'edit_food':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $food = show_food($_GET['id']);
         }
         $cate = show_menu_all();
@@ -107,14 +120,14 @@ switch ($ctr) {
         include_once "./views/admin/food/edit_food.php";
         break;
     case 'delete_food':
-        if(isset($_GET['id'])){
-             delete_food($_GET['id']);
+        if (isset($_GET['id'])) {
+            delete_food($_GET['id']);
         }
         $foods = show_all_foods();
         include_once "./views/admin/food/list_food.php";
         break;
 
-    // quản lý bài viết
+        // quản lý bài viết
     case 'post':
         $posts = get_all_post();
         include_once "./views/admin/post/list_post.php";
@@ -124,33 +137,33 @@ switch ($ctr) {
         include_once "./views/admin/post/add_post.php";
         break;
     case 'edit_post':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $post = get_one_post($_GET['id']);
         }
         $error = validate_edit_post();
         include_once "./views/admin/post/edit_post.php";
         break;
     case 'delete_post':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             delete_post($_GET['id']);
         }
         $posts = get_all_post();
         include_once "./views/admin/post/list_post.php";
         break;
     case 'chi_tiet_post':
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $post = get_one_post($_GET['id']);
         }
         include_once "./views/admin/post/chi_tiet_post.php";
         break;
-    
-    // thống kê
+
+        // thống kê
     case 'thongke':
-        $tk_sp=load_thong_ke_sp();
+        $tk_sp = load_thong_ke_sp();
         include_once "./views/admin/thongke/thongke.php";
         break;
     case 'bieudo':
-        $tk_sp=load_thong_ke_sp();
+        $tk_sp = load_thong_ke_sp();
         include_once "./views/admin/thongke/bieudo.php";
         break;
     case "tai":
