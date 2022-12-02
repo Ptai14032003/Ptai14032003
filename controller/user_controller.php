@@ -1,14 +1,16 @@
 <?php
-    require_once "controller.php";
-    require_once "/xampp/htdocs/du_an1/model/user.php";
+require_once "controller.php";
+// require_once "/xampp/htdocs/du_an1/model/user.php";
 
-function all_user(){
+function all_user()
+{
     $sql = "SELECT * from users";
     return user_all($sql);
 }
 
 // validate add user
-function validate_add_user(){
+function validate_add_user()
+{
     if (isset($_POST['btn-add'])) {
         $name = $_POST['name'];
         $tel = $_POST['tel'];
@@ -49,7 +51,8 @@ function validate_add_user(){
 }
 
 // validate edit user
-function validate_edit_user(){
+function validate_edit_user()
+{
     if (isset($_POST['btn'])) {
         $name = $_POST['name'];
         $tel = $_POST['tel'];
@@ -79,15 +82,14 @@ function validate_edit_user(){
         }
         if ($file['size'] <= 0) {
             $image = $_POST['image'];
-        }else{
+        } else {
             $image = $file['name'];
         }
         if (!$error) {
-                edit_user($name, $tel, $email, $password, $image, $birthday,$ID);
+            edit_user($name, $tel, $email, $password, $image, $birthday, $ID);
             move_uploaded_file($_FILES['image']['tmp_name'], "./public/image/" . $image);
             setcookie("success", "Thêm thành công", time() + 1);
         }
         return $error;
     }
 }
-

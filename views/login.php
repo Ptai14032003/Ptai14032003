@@ -1,0 +1,106 @@
+<?php
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (empty($_POST['login_username']) || empty($_POST['login_password'])) {
+    $error['empty'] = '';
+  }
+  if (empty($error)) {
+    $username = $_POST['login_username'];
+    $password = $_POST['login_password'];
+    $account = get_account($username, $password);
+    // print_r($account);
+    // echo $account['roles'];
+    if (empty($account)) {
+      $error['wrong'] = '';
+    } else {
+      $_SESSION['username'] = $account['name'];
+      $_SESSION['id'] = $account['ID'];
+      if ($account['roles'] == 0) {
+        echo '<script>alert("Đăng nhập thành công!"); window.location.href = "index.php?ctr=/"</script>';
+      }
+    }
+  }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="public/admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="public/admin/plug2ins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="public/admin/dist/css/adminlte.min.css">
+</head>
+
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="index.php?ctr=/">Delicious Food</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          echo  isset($error['wrong']) ? "<p class='login-box-msg' style='color: red'>Sai tên đăng nhập hoặc mật khẩu</p>" : "";
+        }
+        ?>
+        <form action="" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="login_username" placeholder="Enter Username" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="login_password" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Remember Me
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+
+  <!-- jQuery -->
+  <script src="public/admin/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="public/admin/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

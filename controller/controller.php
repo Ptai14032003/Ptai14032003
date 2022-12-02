@@ -5,4 +5,3 @@ function render($path, $data = [])
     $view = "views/" . $path . ".php";
     include_once $view;
 }
-
