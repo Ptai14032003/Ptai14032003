@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['login_email'];
     $password = $_POST['pass'];
     $avatar = $_FILES['avatar']['name'];
-    // check trùng username
-    $account = get_account_by_name($username);
+    // check trùng email
+    $account = get_account_by_name($email);
     if (!empty($account)) {
-      $error['username'] = '';
+      $error['email'] = '';
     }
+
     if (empty($account)) {
       register($username, $phone_number, $email, $password, $avatar);
     }
@@ -65,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if (isset($error['empty'])) {
             echo '<p class="login-box-msg" style="color: red">Chưa nhập đầy đủ thông tin</p>';
           }
-          if (isset($error['username'])) {
-            echo '<p class="login-box-msg" style="color: red">Tên đăng  nhập đã tồn tại</p>';
+          if (isset($error['email'])) {
+            echo '<p class="login-box-msg" style="color: red">Email đăng  nhập đã tồn tại</p>';
           }
           if (empty($account)) {
             echo '<p class="login-box-msg" style="color: green">Đăng ký thành công</p>';
@@ -128,6 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
             </div>
           </div>
+          <p class="login-box-msg">Bạn đã có tài khoản? <a href="index.php?ctr=login">Đăng nhập</a></p>
           <!-- button -->
           <div class="row">
             <div class="col-2"></div>

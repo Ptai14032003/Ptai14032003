@@ -4,16 +4,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $error['empty'] = '';
   }
   if (empty($error)) {
-    $username = $_POST['login_username'];
+    $email = $_POST['login_username'];
     $password = $_POST['login_password'];
     $account = get_account($username, $password);
-    $_SESSION['user'] = $account;
     // print_r($account);
     // echo $account['roles'];
     if (empty($account)) {
       $error['wrong'] = 'Thông tin tài khoản hoặc mật khẩu không chính xác';
     } else {
-      $_SESSION['username'] = $account['name'];
+      $_SESSION['email'] = $account['email'];
       $_SESSION['id'] = $account['ID'];
       $_SESSION['roles'] = $account['roles'];
       if ($account['roles'] == 0) {
@@ -55,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p class="login-box-msg">Sign in to start your session</p>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          echo  isset($error['wrong']) ? "<p class='login-box-msg' style='color: red'>Sai tên đăng nhập hoặc mật khẩu</p>" : "";
+          echo  isset($error['wrong']) ? "<p class='login-box-msg' style='color: red'>Sai email hoặc mật khẩu</p>" : "";
         }
         ?>
         <form action="" method="post">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" name="login_username" placeholder="Enter Username" autofocus>
+            <input type="email" class="form-control" name="login_username" placeholder="Enter Email" autofocus>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -75,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
             </div>
           </div>
+          <p class="login-box-msg">Bạn chưa có tài khoản? <a href="index.php?ctr=register">Đăng ký</a></p>
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">

@@ -29,20 +29,20 @@ function register($name, $tel, $email, $password, $image)
     $stmt->execute();
 }
 // select account 
-function get_account($username, $password)
+function get_account($email, $password)
 {
     $connect = connection();
-    $sql = "SELECT * FROM users WHERE `name` = '$username' AND `password` = '$password'";
+    $sql = "SELECT * FROM users WHERE `email` = '$email' AND `password` = '$password'";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;
 }
 // select account
-function get_account_by_name($username)
+function get_account_by_name($email)
 {
     $connect = connection();
-    $sql = "SELECT * FROM users WHERE `name` = '$username'";
+    $sql = "SELECT * FROM users WHERE `email` = '$email'";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
