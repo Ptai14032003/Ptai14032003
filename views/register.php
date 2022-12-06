@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $fileName = $folder . basename($_FILES['avatar']['name']);
   move_uploaded_file($_FILES['avatar']['tmp_name'], $fileName);
   if ($_FILES['avatar']['size'] == 0) {
-    $error['empty'] = '';
+    $error['empty'] = 'chưa chọn ảnh';
   }
   if ($_POST['pass'] != $_POST['re_pass']) {
-    $error['empty'] = '';
+    $error['empty'] = 'Mật khẩu không trùng khớp';
   }
 
   if (empty($error)) {
@@ -130,11 +130,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <!-- button -->
           <div class="row">
-            <div class="col-4">
+            <div class="col-2"></div>
+            <div class="col-8 ">
               <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
             </div>
+            
             <!-- /.col -->
           </div>
+          <div class="col l-12">
+            <span>Đã có tài khoản?<a href="index.php?ctr=login">Đăng nhập</a></span>
+            </div>
         </form>
       </div>
       <!-- /.login-card-body -->

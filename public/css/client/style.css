@@ -743,6 +743,9 @@ form button{
   background-color:#FFB03B;
 }
 /* Css cho sản phẩm */
+.products {
+  margin-bottom: 20px;
+}
 .products img{
   width: 100%;
   height: 70%;
@@ -760,7 +763,8 @@ form button{
   color: red;
 }
 .products .add{
-  padding: 15px;
+  width: 70%;
+  height: 50px;
   color: black;
   background-color: #ffb03b;
   border-radius: 50px;
@@ -807,4 +811,51 @@ form button{
 /* phân trang */
 .list_trang li{
   margin-right: 10px;
+}
+
+/* css cho phần đặt hàng */
+.bill{
+  border: solid 1px gainsboro;
+  margin:40px 0;
+
+}
+.cart{
+  margin:40px 0;
+  min-height: 70vh;
+}
+.bill .title{
+  width: 100%;
+  background: #E5E7E9;
+  font-size: 25px;
+  padding: 10px;
+}
+.bill .table{
+  padding: 30px;
+}
+.bill .table .form_book .col input{
+  border-radius: 0;
+  border: 1px solid #848484;
+  height: 35px;
+}
+.bill .table .form_book{
+  align-items: center !important;
+}
+.bill .thanhtoan{
+  padding: 30px;
+  width: 100%;
+}
+.bill .thanhtoan input{
+  height: 15px;
+}
+button.book a{
+  color: #fff;
+}
+button.book:hover{
+  text-decoration: none;
+  color: black;
+  background-color: #FFB03B;
+}
+button.book{
+  height: 35px;
+  width: 15%;
 }

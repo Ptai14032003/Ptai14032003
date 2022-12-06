@@ -37,7 +37,13 @@ if (isset($_POST['word']) && ($_POST['word'] != "")) {
                         <h5><?= $food['name'] ?></h5>
                     </a>
                     <p><?= $food['price'] ?>đ</p>
-                    <a class="add" href="#"><i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng</a>
+                    <form action="index.php?ctr=add_to_cart" method="POST">
+                        <input type="hidden" name="ID" value="<?= $food['ID'] ?>">
+                        <input type="hidden" name="name" value="<?= $food['name'] ?>">
+                        <input type="hidden" name="image" value="<?= $food['image'] ?>">
+                        <input type="hidden" name="price" value="<?= $food['price'] ?>">
+                        <button class="add" name="add" type="submit"><i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                    </form>
                 </div>
             <?php endforeach ?>
         </div>

@@ -1,8 +1,7 @@
 <?php
 require_once "./controller/post_controller.php";
 require_once "./model/post.php";
-// line 5 & 126
-// $new_post = get_3_post();
+$new_post = get_3_post();
 ?>
 <?php include_once "header.php" ?>
 <!-- Slide -->
@@ -124,12 +123,12 @@ require_once "./model/post.php";
         <p>New articles about our food reviews and locations appear here.</p>
         <div class="row">
             <?php foreach ($new_post as $post) : ?>
-                <!-- <div class="col l-4 m-12 c-12">
+                <div class="col l-4 m-12 c-12">
                     <a href="index.php?ctr=chi_tiet_bai_viet&id=<?= $post['ID'] ?>"><img src="./public/image/<?= $post['image'] ?>"alt=""></a>
                     <a href="index.php?ctr=chi_tiet_bai_viet&id=<?= $post['ID'] ?>">
                         <h5><?= $post['title'] ?> </h5>
                     </a>
-                </div>   -->
+                </div>  
             <?php endforeach ?>
         </div>
     </div>

@@ -54,10 +54,10 @@ function delete_post($id)
 
 // cmt tạm sau lấy dtb mới thì bỏ cmt 
 
-// function get_3_post(){
-//     $connect = connection();
-//     $sql = "SELECT * from post ORDER BY writing_date limit 3";
-//     $stmt = $connect->prepare($sql);
-//     $stmt->execute();
-//     return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// }
+function get_3_post(){
+    $connect = connection();
+    $sql = "SELECT * from post ORDER BY writing_date limit 3";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}

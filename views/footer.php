@@ -11,7 +11,7 @@
             <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <div class="copyright">
-            &copy; Copyright <strong><span>Group2</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->

@@ -58,11 +58,18 @@
                 </div>
                 <div class="col l-2 user">
                     <ul class="row">
-                        <li><a href="index.php?ctr=giohang"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href="index.php?ctr=viewcart"><i class="fas fa-shopping-cart"></i></a></li>
                         <li class="dropdown">
                             <a href="#"><i class="fas fa-user"></i></a>
                             <ul>
-                                <?php if (isset($_SESSION['username']) && isset($_SESSION['id'])) : ?>
+                                <?php if(isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['roles']==0)) : ?>
+                                    <li><a href="index.php">Đổi Mật Khẩu</a></li>
+                                    <li><a href="index.php">Cập Nhật Thông Tin</a></li>
+                                    <li><a href="index.php?ctr=logout">Đăng xuất</a></li>
+                                <?php elseif(isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['roles']==1)) : ?>
+                                    <li><a href="index.php?ctr=admin">Trang Quản Trị</a></li>
+                                    <li><a href="index.php">Đổi Mật Khẩu</a></li>
+                                    <li><a href="index.php">Cập Nhật Thông Tin</a></li>
                                     <li><a href="index.php?ctr=logout">Đăng xuất</a></li>
                                 <?php else : ?>
                                     <li><a href="index.php?ctr=login">Đăng nhập</a></li>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "./controller/controller.php";
 require_once "./controller/index_controller.php";
 require_once "./controller/menu_food_controller.php";
@@ -7,11 +6,16 @@ require_once "./controller/food_controller.php";
 require_once "./controller/admin_controller.php";
 require_once "./controller/user_controller.php";
 require_once "./controller/post_controller.php";
+require_once "./controller/cart_controller.php";
 require_once "./model/menu_food.php";
 require_once "./model/foods.php";
 require_once "./model/post.php";
 require_once "./model/user.php";
-
+require_once "model/cart.php";
+session_start();
+    if(!isset($_SESSION['mycart'])){
+        $_SESSION['mycart'] = [];
+    }
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 switch ($ctr) {
     case '/':
@@ -166,7 +170,75 @@ switch ($ctr) {
         $tk_sp = load_thong_ke_sp();
         include_once "./views/admin/thongke/bieudo.php";
         break;
-    case "tai":
+
+    // phần giỏ hàng
+    case "add_to_cart":
+        if(isset($_POST['add'])){
+            $ID = $_POST['ID'];
+            $name = $_POST['name'];
+            $image = $_POST['image'];
+            $price = $_POST['price'];
+            $soluong = 1;
+            if(isset($_SESSION['mycart'])){
+                if(check_cart($ID)<0){
+                    $sp_add=[$ID,$name,$image,$price,$soluong];
+                    array_push($_SESSION['mycart'], $sp_add);
+                }else{
+                    $_SESSION['mycart'][check_cart($ID)][4] += $soluong;
+                }
+            }       
+        }
+        include_once "./views/cart/view_cart.php";
+        break;
+    case 'viewcart':
+        include_once "./views/cart/view_cart.php";
+        break;
+    case "del_cart":
+        if(isset($_GET['idcart'])){
+            array_splice($_SESSION['mycart'], $_GET['idcart'],1);
+            header("location: index.php?ctr=viewcart");
+        }else{
+            $_SESSION['mycart'] = [];
+            header("location: index.php?ctr=home");
+        }
+        break;
+    case 'dat_hang':
+        include_once "./views/cart/dat_hang.php";
+        break;
+    // case 'confirm_dat_hang':
+    //     include_once "views/cart/confirm_dat_hang.php";
+    //     break;
+    case 'my_order':
+        $list_order=get_all_order_user($_SESSION['user']['ID']);
+        include_once "views/cart/mybill.php";
+        break;
+    
+
+    // quản lý order
+    case 'list_order':
+        $orders = load_all_order();
+        include_once "views/admin/order/list_order.php";
+        break;
+    case 'update_status':
+        if(isset($_POST['edit'])){
+            update_status(); 
+        }
+        $orders = load_all_order();
+        include_once "./views/admin/order/list_order.php";
+        break;
+    case 'delete_order':
+        if (isset($_GET['id'])) {
+            delete_order_detail($_GET['id']);
+            delete_order($_GET['id']);
+        }
+        $orders = load_all_order();
+        include_once "./views/admin/order/list_order.php";
+        break;
+    case 'detail_order':
+        if (isset($_GET['id'])) {
+            $order_detail=order_detail($_GET['id']);
+        }
+        include_once "views/admin/order/order_detail.php";
         break;
     default:
         break;

@@ -19,7 +19,7 @@
 <body>
     <div class="sidebar">
         <div class="sidebar_brand">
-            <h2><i class="fab fa-accusoft"></i>Team2</h2>
+            <h2><i class="fab fa-accusoft"></i>Delicious</h2>
         </div>
         <div class="sidebar_menu">
             <ul>
@@ -43,10 +43,13 @@
                     <a href="index.php?ctr=post"><i class="fas fa-edit"></i><span>Post</span></a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-file-invoice-dollar"></i><span>Orders</span></a>
+                    <a href="index.php?ctr=list_order"><i class="fas fa-file-invoice-dollar"></i><span>Orders</span></a>
                 </li>
                 <li>
                     <a href="index.php?ctr=thongke"><i class="fas fa-chart-line"></i><span>Statistical</span></a>
+                </li>
+                <li>
+                    <a href="index.php?ctr=home"><i class="fas fa-home"></i><span>Delicious Page</span></a>
                 </li>
             </ul>
         </div>
@@ -60,9 +63,9 @@
                 </label>
             </h3>
             <div class="user_wrapper">
-                <img src="./public/image/user1.jpg" width="60px" height="60px" alt="">
+                <img src="./public/image/<?= $_SESSION['user']['image'] ?>" width="60px" height="60px" alt="">
                 <div>
-                    <h4>Phạm Văn Tài</h4>
+                    <h4><?= $_SESSION['user']['name'] ?></h4>
                     <small>Super admin</small>
                 </div>
             </div>

@@ -1,6 +1,4 @@
 <?php
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (empty($_POST['login_username']) || empty($_POST['login_password'])) {
     $error['empty'] = '';
@@ -9,15 +7,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['login_username'];
     $password = $_POST['login_password'];
     $account = get_account($username, $password);
+    $_SESSION['user'] = $account;
     // print_r($account);
     // echo $account['roles'];
     if (empty($account)) {
-      $error['wrong'] = '';
+      $error['wrong'] = 'Thông tin tài khoản hoặc mật khẩu không chính xác';
     } else {
       $_SESSION['username'] = $account['name'];
       $_SESSION['id'] = $account['ID'];
+      $_SESSION['roles'] = $account['roles'];
       if ($account['roles'] == 0) {
         echo '<script>alert("Đăng nhập thành công!"); window.location.href = "index.php?ctr=/"</script>';
+      }else{
+        echo '<script>alert("Đăng nhập thành công!"); window.location.href = "index.php?ctr=admin"</script>';
       }
     }
   }
@@ -85,6 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- /.col -->
             <div class="col-4">
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+            <div class="col l-12">
+            <span>Chưa có tài khoản?<a href="index.php?ctr=register">Đăng ký</a></span>
             </div>
             <!-- /.col -->
           </div>
