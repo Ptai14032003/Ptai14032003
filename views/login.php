@@ -6,12 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (empty($error)) {
     $email = $_POST['login_username'];
     $password = $_POST['login_password'];
-    $account = get_account($username, $password);
+    $account = get_account($email, $password);
+
     // print_r($account);
     // echo $account['roles'];
     if (empty($account)) {
       $error['wrong'] = 'Thông tin tài khoản hoặc mật khẩu không chính xác';
     } else {
+      $_SESSION['user'] = get_account($email, $password);
       $_SESSION['email'] = $account['email'];
       $_SESSION['id'] = $account['ID'];
       $_SESSION['roles'] = $account['roles'];

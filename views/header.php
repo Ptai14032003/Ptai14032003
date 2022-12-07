@@ -62,11 +62,11 @@
                         <li class="dropdown">
                             <a href="#"><i class="fas fa-user"></i></a>
                             <ul>
-                                <?php if(isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['roles']==0)) : ?>
+                                <?php if(isset($_SESSION['email']) && isset($_SESSION['id']) && ($_SESSION['roles']==0)) : ?>
                                     <li><a href="index.php">Đổi Mật Khẩu</a></li>
                                     <li><a href="index.php">Cập Nhật Thông Tin</a></li>
                                     <li><a href="index.php?ctr=logout">Đăng xuất</a></li>
-                                <?php elseif(isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['roles']==1)) : ?>
+                                <?php elseif(isset($_SESSION['email']) && isset($_SESSION['id']) && ($_SESSION['roles']==1)) : ?>
                                     <li><a href="index.php?ctr=admin">Trang Quản Trị</a></li>
                                     <li><a href="index.php">Đổi Mật Khẩu</a></li>
                                     <li><a href="index.php">Cập Nhật Thông Tin</a></li>
