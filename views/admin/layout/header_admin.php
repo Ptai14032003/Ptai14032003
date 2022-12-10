@@ -31,7 +31,7 @@
                     <a href="index.php?ctr=user"><i class="fas fa-users"></i><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-comment"></i><span>Comments</span></a>
+                    <a href="index.php?ctr=list_comment"><i class="fas fa-comment"></i><span>Comments</span></a>
                 </li>
                 <li>
                     <a href="index.php?ctr=category"><i class="fas fa-scroll"></i><span>Menu</span></a>

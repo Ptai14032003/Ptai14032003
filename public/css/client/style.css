@@ -779,6 +779,9 @@ form button{
 .chitiet img:hover{
   transform: scale(1.1);
 }
+.chitiet .content{
+  margin-bottom: 50px;
+}
 .chitiet .content h3{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
   margin-bottom: 20px;
@@ -858,4 +861,57 @@ button.book:hover{
 button.book{
   height: 35px;
   width: 15%;
+}
+
+/* phần bình luận */
+.binhluan{
+  margin-top: 100px !important;
+  border: solid 1px gainsboro;
+  border-radius: 10px;
+
+}
+.binhluan .title{
+  width: 100%;
+  background: #E5E7E9;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+.box_comment{
+padding: 20px;
+}
+.box_comment .box_comment_item{
+  width: 95%;
+  border: solid 1px #E5E7E9;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.1); 
+  border-radius: 30px;
+  padding: 10px;
+}
+.box_comment .comment_content{
+  margin-bottom: 0 !important;
+}
+.box_comment .ngay_comment{
+  margin-left: 85%;
+  margin-bottom: 0 !important;
+}
+
+.binhluan_form{
+  width: 100%;
+  background: #E5E7E9;
+  font-size: 25px;
+  padding: 10px ;
+  border-radius:0 0 10px 10px;
+}
+.binhluan_form input{
+  width: 70%;
+  border: none;
+  padding: 10px !important;
+  border-radius: 30px;
+  height: 35px;
+}
+.binhluan_form button{
+  width: 20%;
+  margin-bottom: 10px;
+  height: 35px;
 }

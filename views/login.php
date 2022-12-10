@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
             </div>
           </div>
-          <p class="login-box-msg">Bạn chưa có tài khoản? <a href="index.php?ctr=register">Đăng ký</a></p>
+          <!-- <p class="login-box-msg">Bạn chưa có tài khoản? <a href="index.php?ctr=register">Đăng ký</a></p> -->
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">

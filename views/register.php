@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (empty($_POST['username']) || empty($_POST['phone_number']) || empty($_POST['login_email']) || empty($_POST['pass']) || empty($_POST['re_pass'])) {
     $error['empty'] = '';
   }
-  $folder = "./public/image/avatar/";
+  $folder = "./public/image/";
   $fileName = $folder . basename($_FILES['avatar']['name']);
   move_uploaded_file($_FILES['avatar']['tmp_name'], $fileName);
   if ($_FILES['avatar']['size'] == 0) {
@@ -21,13 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['pass'];
     $avatar = $_FILES['avatar']['name'];
     // check trùng email
-    $account = get_account_by_name($email);
+    if($email!=''){
+      $account = get_account_by_name($email);
+      if (empty($account)) {
+        register($username, $phone_number, $email, $password, $avatar);
+      }
+    }else{
+      $error['account'] = '';
+    }
     if (!empty($account)) {
       $error['email'] = '';
-    }
-
-    if (empty($account)) {
-      register($username, $phone_number, $email, $password, $avatar);
     }
   }
 }
@@ -67,9 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo '<p class="login-box-msg" style="color: red">Chưa nhập đầy đủ thông tin</p>';
           }
           if (isset($error['email'])) {
-            echo '<p class="login-box-msg" style="color: red">Email đăng  nhập đã tồn tại</p>';
+            echo '<p class="login-box-msg" style="color: red">Email đã tồn tại</p>';
           }
-          if (empty($account)) {
+          if (isset($error['account'])) {
             echo '<p class="login-box-msg" style="color: green">Đăng ký thành công</p>';
           }
         }
@@ -129,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
             </div>
           </div>
-          <p class="login-box-msg">Bạn đã có tài khoản? <a href="index.php?ctr=login">Đăng nhập</a></p>
+          <!-- <p class="login-box-msg">Bạn đã có tài khoản? <a href="index.php?ctr=login">Đăng nhập</a></p> -->
           <!-- button -->
           <div class="row">
             <div class="col-2"></div>

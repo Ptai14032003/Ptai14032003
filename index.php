@@ -7,11 +7,13 @@ require_once "./controller/admin_controller.php";
 require_once "./controller/user_controller.php";
 require_once "./controller/post_controller.php";
 require_once "./controller/cart_controller.php";
+require_once "./controller/binh_luan_controller.php";
 require_once "./model/menu_food.php";
 require_once "./model/foods.php";
 require_once "./model/post.php";
 require_once "./model/user.php";
 require_once "model/cart.php";
+require_once "./model/binhluant.php";
 session_start();
     if(!isset($_SESSION['mycart'])){
         $_SESSION['mycart'] = [];
@@ -239,6 +241,34 @@ switch ($ctr) {
             $order_detail=order_detail($_GET['id']);
         }
         include_once "views/admin/order/order_detail.php";
+        break;
+    // phần bình luận và quản lý bình luận
+    case 'add_binh_luan':
+        if(isset($_POST['gui_binh_luan'])){
+            $error=add_cmt();
+        }
+        if (isset($_GET['idsp'])) {
+            chitiet($_GET['idsp']);
+        }
+        include_once "views/binhluan.php";
+        break;
+    case 'list_comment':
+        $list_comment = load_comment_sp_all();
+        include_once "views/admin/comment/list_comment.php";
+        break;
+    case 'detail_comment':
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $comment = load_comment_sp($id);
+        }
+    case 'delete_comment':
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            delete_comment($id);
+
+        }
+        $comment = load_comment_sp($id);
+        include_once "views/admin/comment/chi_tiet_coment.php";
         break;
     default:
         break;
