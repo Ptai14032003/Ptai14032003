@@ -26,9 +26,17 @@ function load_comment_sp_all(){
     return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+// xóa bình luận theo mã
 function delete_comment($id){
     $connect = connection();
     $sql = "DELETE from comment where ID=$id";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+}
+// xóa bình luận theo mã món ăn
+function delete_all_comment($id){
+    $connect = connection();
+    $sql = "DELETE from comment where food_id=$id";
     $stmt = $connect->prepare($sql);
     $stmt->execute();
 }

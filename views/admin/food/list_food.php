@@ -17,7 +17,7 @@
                     <tr>
                         <td><?= $food['name'] ?></td>
                         <td><img src="./public/image/<?= $food['image'] ?>" width="100px" height="100px" alt=""></td>
-                        <td><?= $food['price'] ?></td>
+                        <td><?= number_format($food['price'], 0, '', ','); ?>đ</td>
                         <td><?= $food['desc'] ?></td>
                         <td><?= $food['cate_name'] ?></td>
                         <td>

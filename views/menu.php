@@ -36,7 +36,7 @@ if (isset($_POST['word']) && ($_POST['word'] != "")) {
                     <a href="index.php?ctr=chitiet&idsp=<?=$food['ID']?>">
                         <h5><?= $food['name'] ?></h5>
                     </a>
-                    <p><?= $food['price'] ?>đ</p>
+                    <p><?= number_format($food['price'], 0, '', ','); ?>đ</p>
                     <form action="index.php?ctr=add_to_cart" method="POST">
                         <input type="hidden" name="ID" value="<?= $food['ID'] ?>">
                         <input type="hidden" name="name" value="<?= $food['name'] ?>">

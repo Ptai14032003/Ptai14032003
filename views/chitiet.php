@@ -19,7 +19,7 @@ $cate = show_menu_all();
     <div class="grid wide">
         <div class="row">
             <div class="col l-6">
-                <img src="./public/image/<?= $food['image'] ?>" alt="">
+                <img src="./public/image/<?= $food['image'] ?>" style="height: 600px;width: 90%;" alt="">
             </div>
             <div class="col l-6">
                 <div class="content">
@@ -27,7 +27,7 @@ $cate = show_menu_all();
                     <span>
                         <?= $food['desc'] ?>
                     </span><br><br>
-                    <strong><?= $food['price'] ?>đ</strong>
+                    <strong><?= number_format($food['price'], 0, '', ','); ?>đ</strong>
                 </div>
                 <div class="products">
                     <form action="index.php?ctr=add_to_cart" method="POST">

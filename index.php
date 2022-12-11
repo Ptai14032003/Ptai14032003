@@ -265,11 +265,19 @@ switch ($ctr) {
         if(isset($_GET['id'])){
             $id = $_GET['id'];
             delete_comment($id);
-
         }
         $comment = load_comment_sp($id);
         include_once "views/admin/comment/chi_tiet_coment.php";
         break;
+    case 'delete_all_comment':
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            delete_all_comment($id);
+        }
+        $list_comment = load_comment_sp_all();
+        include_once "views/admin/comment/list_comment.php";
+        break;
     default:
         break;
+        // number_format($service['price'], 0, '', ',');
 }

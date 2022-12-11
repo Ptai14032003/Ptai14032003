@@ -34,6 +34,7 @@
             <?php endforeach ?>
         </div>
         <div class="binhluan_form">
+        <?php if(isset($_SESSION['user'])): ?>
             <form action="index.php?ctr=add_binh_luan&idsp=<?= $idsp ?>" method="POST">
                 <input type="hidden" name="user_id" value="<?= $_SESSION['user']['ID']?>">
                 <input type="hidden" name="food_id" value="<?= $idsp ?>">
@@ -41,6 +42,9 @@
                 <span style="color:red;"><?= $error['content'] ?? ''  ?></span>
                 <button class="btn btn-outline-primary" type="submit" name="gui_binh_luan">Gửi bình luận</button>
             </form>
+        <?php else : ?>
+            <div class="title" style="color:red;">Vui lòng đăng nhập để bình luận!</div>
+        <?php endif; ?>
         </div>
         <!--Optional JavaScript-->
         <!--jQuery first, then Popper.js, then Bootstrap JS-->
