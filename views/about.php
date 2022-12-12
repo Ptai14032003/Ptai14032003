@@ -40,7 +40,7 @@
     <div class="grid wide">
         <h1>Các giá trị tạo nên <strong>Delicious Group2</strong></h1>
         <div class="row">
-            <div class="col l-6 m-6 c-12">
+            <div class="col l-6 m-6 c-12 image">
                 <img src="./public/image/review11.jpg" alt="">
             </div>
             <div class="col l-6 m-6 c-12">
@@ -68,7 +68,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col l-6 m-6 c-12">
+            <div class="col l-6 m-6 c-12 image">
                 <img src="./public/image/about2.jpg" alt="">
             </div>
         </div>

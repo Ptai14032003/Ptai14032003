@@ -1,12 +1,11 @@
 <?php
-require_once "./model/user.php";
-require_once "./controller/user_controller.php";
-$error = validate_edit_user();
-$user = get_one_user($_GET['id']);
+    $user=$_SESSION['user'];
 ?>
-<?php include_once "/xampp/htdocs/du_an1/views/admin/layout/header_admin.php" ?>
-    <div class="main-contents">
-        <form action="index.php?ctr=edit_user&id=<?= $user['ID']?>" method="POST" enctype="multipart/form-data">
+<?php include_once "views/header.php" ?>
+<div class="main-contents">
+    <div class="grid wide">
+        <h1>Cập nhật thông tin tài khoản</h1>
+        <form action="index.php?ctr=cap_nhat_thong_tin" method="POST" enctype="multipart/form-data">
             <div class="row">
                     <input type="hidden" name="ID" value="<?= $user['ID']?>">
                 <div class="form-group col l-6">
@@ -43,8 +42,8 @@ $user = get_one_user($_GET['id']);
                     <span style="color:red;"><?= $error['image'] ?? ''  ?></span>
                 </div>
             </div>
-            <button type="submit" name="btn" class="btn btn-primary">Edit User</button>
-            <a href="index.php?ctr=user" class="btn btn-primary">Danh Sách</a>
+            <button type="submit" name="capnhat" class="btn btn-primary">Cập nhật thông tin</button>
         </form> 
-    </div>  
-<?php include_once "/xampp/htdocs/du_an1/views/admin/layout/footer_admin.php" ?>
+    </div>
+</div>  
+<?php include_once "views/footer.php" ?>

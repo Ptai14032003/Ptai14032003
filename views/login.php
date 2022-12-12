@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['login_username'];
     $password = $_POST['login_password'];
     $account = get_account($email, $password);
-
+    $_SESSION['user'] = get_account($email, $password);
     // print_r($account);
     // echo $account['roles'];
     if (empty($account)) {

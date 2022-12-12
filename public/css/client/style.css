@@ -397,12 +397,16 @@ form button{
 .giatri{
   margin-top: 50px;
 }
+.giatri .row .image{
+  overflow: hidden !important;
+}
 .giatri img{
    width: 100%; 
    height: 100%;
 }
-.giatri img:hover{
+.giatri .grid .row .image:hover img{
     transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 .giatri h1{
   text-align: center;
@@ -745,10 +749,12 @@ form button{
 /* Css cho sản phẩm */
 .products {
   margin-bottom: 20px;
+  overflow: hidden;
 }
 .products img{
   width: 100%;
   height: 70%;
+  transition: all 0.3s ease-in-out;
 }
 .products img:hover{
   transform: scale(1.05);
@@ -776,8 +782,14 @@ form button{
 }
 
 /* Chi tiết sản phẩm */
+.chitiet{
+  margin-top: 50px;
+}
 .chitiet img:hover{
   transform: scale(1.1);
+}
+.chitiet img{
+  height: 90%;
 }
 .chitiet .content{
   margin-bottom: 50px;
@@ -913,5 +925,64 @@ padding: 20px;
 .binhluan_form button{
   width: 20%;
   margin-bottom: 10px;
+  height: 35px;
+}
+/* css phần đổi mật khẩu */
+.doi_mat_khau{
+  text-align: center;
+  min-height: 55vh;
+  padding-top: 50px;
+
+}
+.doi_mat_khau form{
+  border: solid 1px gainsboro;
+  width: 50%;
+  margin: 0 auto;
+  background: #fff;
+  text-align: center;
+  padding: 40px;
+  background-color: gainsboro;
+}
+.doi_mat_khau form input{
+  width: 60%;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 0;
+  border: solid 1px grey;
+}
+.doi_mat_khau form label{
+  font-size: 20px;
+}
+.doi_mat_khau form button{
+  width: 40%;
+  border-radius: 30px;
+  font-size: 20px;
+  margin-top: 30px; 
+  height: 40px;
+}
+
+/* cập nhật thông tin */
+.main-contents{
+  min-height: 55vh;
+  padding: 40px 30px;
+  /* background: #f1f5f9; */
+}
+.main-contents form{
+  border: solid 1px #fff;
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  text-align: center;
+}
+.main-contents form input{
+  width: 80%;
+  font-size: 20px;
+  border-radius: 0;
+  padding: 0;
+}
+.main-contents form label{
+  font-size: 20px;
+}
+.main-contents form button{
   height: 35px;
 }

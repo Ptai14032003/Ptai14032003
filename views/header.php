@@ -38,10 +38,10 @@
                                     <a class="nav-link" href="index.php?ctr=menu">Menu</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
+                                    <a class="nav-link" href="index.php?ctr=contact">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Review</a>
+                                    <a class="nav-link" href="index.php?ctr=review">Review</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Blog</a>

@@ -18,10 +18,10 @@ $cate = show_menu_all();
 <div class="chitiet">
     <div class="grid wide">
         <div class="row">
-            <div class="col l-6">
-                <img src="./public/image/<?= $food['image'] ?>" style="height: 600px;width: 90%;" alt="">
+            <div class="col l-6 m-12 c-12">
+                <img src="./public/image/<?= $food['image'] ?>" alt="">
             </div>
-            <div class="col l-6">
+            <div class="col l-6 m-12 c-12">
                 <div class="content">
                     <h3><?= $food['name'] ?></h3>
                     <span>
@@ -45,5 +45,4 @@ $cate = show_menu_all();
 <div class="binhluan grid wide" id="cmt">
     
 </div>
-
 <?php require_once "footer.php" ?>

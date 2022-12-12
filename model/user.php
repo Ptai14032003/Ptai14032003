@@ -86,3 +86,11 @@ function delete_user($id)
     $stmt = $connect->prepare($sql);
     $stmt->execute();
 }
+
+// cập nhật mật khẩu
+function update_password($id,$newpass){
+    $connect = connection();
+    $sql = "UPDATE users set `password`='$newpass' WHERE ID=$id";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+}

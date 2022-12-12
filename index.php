@@ -22,7 +22,6 @@ $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 switch ($ctr) {
     case '/':
     case 'home':
-
         show_home();
         break;
     case 'about':
@@ -31,7 +30,13 @@ switch ($ctr) {
     case 'menu':
         show_cate();
         break;
-        // đăng nhập & đăng ký
+    case 'contact';
+        include_once "views/contact.php";
+        break;
+    case 'review':
+        include_once "views/review.php";
+        break;
+    // đăng nhập & đăng ký
     case 'login':
         require "./views/login.php";
         break;
@@ -272,10 +277,19 @@ switch ($ctr) {
     case 'delete_all_comment':
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            delete_all_comment($id);
+            delete_all_comment($id); 
         }
         $list_comment = load_comment_sp_all();
         include_once "views/admin/comment/list_comment.php";
+
+    // đổi mật khẩu và cập nhật thông tin
+    case 'doi_mat_khau':
+        $error = doi_mat_khau();
+        include_once "views/thongtinkhachhang/doi_mat_khau.php";
+        break;
+    case 'cap_nhat_thong_tin':
+        $error = cap_nhat_thong_tin();
+        include_once "views/thongtinkhachhang/cap_nhat_thong_tin.php";
         break;
     default:
         break;

@@ -1,5 +1,6 @@
 <?php
     require_once "../model/binhluant.php";
+    session_start();
     $idsp = $_REQUEST['idsp'];
     $comment = load_comment_sp($idsp);
 
@@ -34,7 +35,7 @@
             <?php endforeach ?>
         </div>
         <div class="binhluan_form">
-        <?php if(isset($_SESSION['user'])): ?>
+        <?php if(isset($_SESSION['email']) && isset($_SESSION['id'])): ?>
             <form action="index.php?ctr=add_binh_luan&idsp=<?= $idsp ?>" method="POST">
                 <input type="hidden" name="user_id" value="<?= $_SESSION['user']['ID']?>">
                 <input type="hidden" name="food_id" value="<?= $idsp ?>">
@@ -44,6 +45,7 @@
             </form>
         <?php else : ?>
             <div class="title" style="color:red;">Vui lòng đăng nhập để bình luận!</div>
+            <div><?php  echo $_SESSION['user'] ?></div>
         <?php endif; ?>
         </div>
         <!--Optional JavaScript-->

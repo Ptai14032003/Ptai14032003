@@ -61,3 +61,24 @@ function get_3_post(){
     $stmt->execute();
     return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+// load bài viết lên review, phân trang
+function sotrang(){
+    //tìm tổng số trang cần chia
+    $connect = connection();
+    $result = $connect->query("SELECT COUNT(ID)as totals from post");
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $total_row = $row['totals'];
+    $trang = ceil($total_row / 8);
+    return $trang;
+}
+// phân trang cho tất cả bài post
+
+function load_post_review(){
+    $connect = connection();
+    $sql = "SELECT * from post ORDER BY writing_date";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
